@@ -8,7 +8,7 @@
 
 #import "CityTableViewController.h"
 #import "CityModel.h"
-
+#import "MapViewController.h"
 
 
 // 当前屏幕的宽度
@@ -61,12 +61,13 @@
 
 - (NSMutableArray *)searchResults{
     
-    if (!_searchResults) {
+    if (!_searchResults){
         
         self.searchResults = [NSMutableArray array];
     }
     return _searchResults;
 }
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -78,7 +79,7 @@
     
     
     
-   }
+}
 
 #pragma mark - 搭建视图
 - (void)loadSubView{
@@ -86,7 +87,7 @@
     // 创建表头
     self.headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, size_width, 44)];
     
-//    _headerView.backgroundColor = [UIColor orangeColor];
+    //    _headerView.backgroundColor = [UIColor orangeColor];
     
     self.tableView.tableHeaderView = _headerView;
     
@@ -113,7 +114,7 @@
     self.searchController.dimsBackgroundDuringPresentation = NO;
     
     
-
+    
 }
 
 #pragma mark - 获取城市列表
@@ -176,9 +177,9 @@
     return (!self.searchController.active) ? _provincesArray.count : 1;
 }
 
- // 每个分区cell的个数
+// 每个分区cell的个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    
     // 定义数组存储城市model
     NSMutableArray *countArr = [NSMutableArray array];
     
@@ -190,9 +191,9 @@
             [countArr addObject:model];
         }
     }
-
+    
     return (!self.searchController.active) ? countArr.count : self.searchResults.count;
-
+    
 }
 
 // cell赋值
@@ -209,7 +210,7 @@
         if (indexPath.section == model.PID.integerValue-1 ) {
             
             [array addObject:model.CityName];
-
+            
         }
     }
     // 数组赋值
@@ -224,17 +225,17 @@
     
     return listArray;
     /*
-    NSMutableArray *array = [NSMutableArray array];
-    
-    for (CityModel *model in _provincesArray) {
-        
-        NSString *string = model.ProvinceName;
-        
-        [array addObject:string];
-        
-    }
-    
-    return array;
+     NSMutableArray *array = [NSMutableArray array];
+     
+     for (CityModel *model in _provincesArray) {
+     
+     NSString *string = model.ProvinceName;
+     
+     [array addObject:string];
+     
+     }
+     
+     return array;
      */
     
     
@@ -260,9 +261,53 @@
     //刷新表格
     [self.tableView reloadData];
     
-
+    
     
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (self.searchController.active) {
+        
+        NSLog(@"%@",self.searchResults[indexPath.row]);
+        
+        MapViewController *mapVC = [[MapViewController alloc]init];
+        
+        // 属性传值
+        mapVC.titleStr = self.searchResults[indexPath.row];
+        
+        [self.navigationController pushViewController:mapVC animated:YES];
+
+        
+    }else{
+        
+        // 定义一个数组接收城市数据
+        NSMutableArray *array = [NSMutableArray array];
+        
+        for (CityModel *model in _cityArray) {
+            
+            // 分区下标和PID相同的数据存到数组中
+            if (indexPath.section == model.PID.integerValue-1 ) {
+                
+                [array addObject:model.CityName];
+                
+            }
+        }
+        
+        NSLog(@"%@",array[indexPath.row]);
+        
+        MapViewController *mapVC = [[MapViewController alloc]init];
+        
+        // 属性传值
+        mapVC.titleStr = array[indexPath.row];
+        
+        [self.navigationController pushViewController:mapVC animated:YES];
+        
+        
+    }
+    
+}
+
 
 
 
@@ -281,47 +326,55 @@
 }
 
 /*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
 
 /*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }
+ }
+ */
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+ }
+ */
 
 /*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
 
 /*
-#pragma mark - Navigation
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+     
+     if([segue.identifier isEqualToString:@"toMapVC"]){
+         
+         
+         
+     }
+     
+     
+ }
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
 */
-
 @end

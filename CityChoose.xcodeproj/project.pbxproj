@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA1B8A471DE29B3400C614DC /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA1B8A461DE29B3400C614DC /* MapViewController.m */; };
 		EA311F141DD953C700825686 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA311F131DD953C700825686 /* main.m */; };
 		EA311F171DD953C700825686 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA311F161DD953C700825686 /* AppDelegate.m */; };
 		EA311F1D1DD953C700825686 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA311F1B1DD953C700825686 /* Main.storyboard */; };
@@ -15,11 +16,11 @@
 		EA311F251DD953C700825686 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA311F231DD953C700825686 /* LaunchScreen.storyboard */; };
 		EA311F301DD953C700825686 /* CityChooseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA311F2F1DD953C700825686 /* CityChooseTests.m */; };
 		EA311F3B1DD953C700825686 /* CityChooseUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA311F3A1DD953C700825686 /* CityChooseUITests.m */; };
-		EAA96B8E1DDAEBDA00A44DF6 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAA96B8D1DDAEBDA00A44DF6 /* SearchViewController.m */; };
 		EAD4FD221DD954CB00367C09 /* Provinces.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAD4FD211DD954CB00367C09 /* Provinces.plist */; };
 		EAD4FD251DD954F000367C09 /* CityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD4FD241DD954F000367C09 /* CityTableViewController.m */; };
 		EAD4FD2A1DD9868E00367C09 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD4FD291DD9868E00367C09 /* BaseModel.m */; };
 		EAD4FD2E1DD9873300367C09 /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD4FD2D1DD9873300367C09 /* CityModel.m */; };
+		EAFD71A21DE6C26F00AC27C6 /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = EAFD71A11DE6C26F00AC27C6 /* MapAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EA1B8A451DE29B3400C614DC /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		EA1B8A461DE29B3400C614DC /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		EA311F0F1DD953C700825686 /* CityChoose.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityChoose.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA311F131DD953C700825686 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EA311F151DD953C700825686 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -55,8 +58,6 @@
 		EA311F361DD953C700825686 /* CityChooseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityChooseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA311F3A1DD953C700825686 /* CityChooseUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityChooseUITests.m; sourceTree = "<group>"; };
 		EA311F3C1DD953C700825686 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EAA96B8C1DDAEBDA00A44DF6 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		EAA96B8D1DDAEBDA00A44DF6 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		EAD4FD211DD954CB00367C09 /* Provinces.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Provinces.plist; sourceTree = "<group>"; };
 		EAD4FD231DD954F000367C09 /* CityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityTableViewController.h; sourceTree = "<group>"; };
 		EAD4FD241DD954F000367C09 /* CityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityTableViewController.m; sourceTree = "<group>"; };
@@ -64,6 +65,8 @@
 		EAD4FD291DD9868E00367C09 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		EAD4FD2C1DD9873300367C09 /* CityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityModel.h; sourceTree = "<group>"; };
 		EAD4FD2D1DD9873300367C09 /* CityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityModel.m; sourceTree = "<group>"; };
+		EAFD71A01DE6C26F00AC27C6 /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
+		EAFD71A11DE6C26F00AC27C6 /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +123,10 @@
 				EA311F161DD953C700825686 /* AppDelegate.m */,
 				EAD4FD231DD954F000367C09 /* CityTableViewController.h */,
 				EAD4FD241DD954F000367C09 /* CityTableViewController.m */,
-				EAA96B8C1DDAEBDA00A44DF6 /* SearchViewController.h */,
-				EAA96B8D1DDAEBDA00A44DF6 /* SearchViewController.m */,
+				EA1B8A451DE29B3400C614DC /* MapViewController.h */,
+				EA1B8A461DE29B3400C614DC /* MapViewController.m */,
+				EAFD71A01DE6C26F00AC27C6 /* MapAnnotation.h */,
+				EAFD71A11DE6C26F00AC27C6 /* MapAnnotation.m */,
 				EAD4FD2B1DD9871400367C09 /* Model */,
 				EA311F1B1DD953C700825686 /* Main.storyboard */,
 				EA311F211DD953C700825686 /* Assets.xcassets */,
@@ -238,6 +243,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = YGFHD343SK;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					EA311F2A1DD953C700825686 = {
 						CreatedOnToolsVersion = 8.1;
@@ -309,10 +319,11 @@
 				EAD4FD251DD954F000367C09 /* CityTableViewController.m in Sources */,
 				EA311F201DD953C700825686 /* CityChoose.xcdatamodeld in Sources */,
 				EA311F171DD953C700825686 /* AppDelegate.m in Sources */,
+				EAFD71A21DE6C26F00AC27C6 /* MapAnnotation.m in Sources */,
 				EAD4FD2A1DD9868E00367C09 /* BaseModel.m in Sources */,
 				EAD4FD2E1DD9873300367C09 /* CityModel.m in Sources */,
 				EA311F141DD953C700825686 /* main.m in Sources */,
-				EAA96B8E1DDAEBDA00A44DF6 /* SearchViewController.m in Sources */,
+				EA1B8A471DE29B3400C614DC /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
