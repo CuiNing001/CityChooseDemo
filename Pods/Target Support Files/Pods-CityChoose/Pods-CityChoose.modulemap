@@ -1,0 +1,6 @@
+framework module Pods_CityChoose {
+  umbrella header "Pods-CityChoose-umbrella.h"
+
+  export *
+  module * { export * }
+}

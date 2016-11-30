@@ -9,7 +9,7 @@
 #import "CityTableViewController.h"
 #import "CityModel.h"
 #import "MapViewController.h"
-
+#import "MJRefresh.h"
 
 // 当前屏幕的宽度
 #define size_width [UIScreen mainScreen].bounds.size.width
@@ -113,9 +113,18 @@
     // 设置为NO,可以点击搜索出来的内容
     self.searchController.dimsBackgroundDuringPresentation = NO;
     
-    
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+        NSLog(@"刷新完成");
+        
+        self.title = @"City";
+        
+        [self.tableView.mj_header endRefreshing];
+    }];
     
 }
+
+
 
 #pragma mark - 获取城市列表
 - (void)readDataFromPlist{
